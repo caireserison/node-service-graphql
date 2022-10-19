@@ -16,15 +16,15 @@ const schema = buildSchema(`
       }
 `);
 
-const rootValue = {
-  hello: () => 'Hello World!',
-  world: () => 'World only',
-  test: () => 'Last Test'
+const resolvers = {
+    hello: () => 'Hello World!',
+    world: () => 'World only',
+    test: () => 'Last Test'
 };
 
 router.use('/', graphqlHTTP({
   schema,
-  rootValue,
+  rootValue: resolvers,
   graphiql: true
 }));
 
